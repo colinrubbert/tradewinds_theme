@@ -1,0 +1,970 @@
+/*
+Theme Name: Tradewinds Interactive
+Theme URI: http://underscores.me/
+Author: Colin Rubbert
+Author URI: http://colinrubbert.com
+Description: Tradewinds Interactive Theme
+Version: 1.0.0
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: tradewinds_interactive
+Tags:
+
+This theme, like WordPress, is licensed under the GPL.
+Use it to make something cool, have fun, and share what you've learned with others.
+
+Tradewinds Interactive is based on Underscores http://underscores.me/, (C) 2012-2016 Automattic, Inc.
+Underscores is distributed under the terms of the GNU GPL v2 or later.
+
+Normalizing styles have been helped along thanks to the fine work of
+Nicolas Gallagher and Jonathan Neal http://necolas.github.com/normalize.css/
+*/
+
+/*--------------------------------------------------------------
+>>> TABLE OF CONTENTS:
+----------------------------------------------------------------
+
+# Menus
+# Accessibility
+# Alignments
+# Clearings
+# Widgets
+# Content
+	## Posts and pages
+	## Comments
+# Infinite scroll
+# Media
+	## Captions
+	## Galleries
+# Theme Specific Styles
+--------------------------------------------------------------*/
+
+/*--------------------------------------------------------------
+# Menus
+--------------------------------------------------------------*/
+
+/* Small menu. */
+.menu-toggle,
+.main-navigation.toggled ul {
+	display: block;
+}
+
+@media screen and (min-width: 37.5em) {
+	.menu-toggle {
+		display: none;
+	}
+	.main-navigation ul {
+		display: block;
+	}
+}
+
+.site-main .comment-navigation,
+.site-main .posts-navigation,
+.site-main .post-navigation {
+	margin: 0 0 1.5em;
+	overflow: hidden;
+}
+
+.comment-navigation .nav-previous,
+.posts-navigation .nav-previous,
+.post-navigation .nav-previous {
+	float: left;
+	width: 50%;
+}
+
+.comment-navigation .nav-next,
+.posts-navigation .nav-next,
+.post-navigation .nav-next {
+	float: right;
+	text-align: right;
+	width: 50%;
+}
+
+/*--------------------------------------------------------------
+# Accessibility
+--------------------------------------------------------------*/
+/* Text meant only for screen readers. */
+.screen-reader-text {
+	clip: rect(1px, 1px, 1px, 1px);
+	position: absolute !important;
+	height: 1px;
+	width: 1px;
+	overflow: hidden;
+}
+
+.screen-reader-text:focus {
+	background-color: #f1f1f1;
+	border-radius: 3px;
+	box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
+	clip: auto !important;
+	color: #21759b;
+	display: block;
+	font-size: 14px;
+	font-size: 0.875rem;
+	font-weight: bold;
+	height: auto;
+	left: 5px;
+	line-height: normal;
+	padding: 15px 23px 14px;
+	text-decoration: none;
+	top: 5px;
+	width: auto;
+	z-index: 100000; /* Above WP toolbar. */
+}
+
+/* Do not show the outline on the skip link target. */
+#content[tabindex="-1"]:focus {
+	outline: 0;
+}
+
+/*--------------------------------------------------------------
+# Alignments
+--------------------------------------------------------------*/
+.alignleft {
+	display: inline;
+	float: left;
+	margin-right: 1.5em;
+}
+
+.alignright {
+	display: inline;
+	float: right;
+	margin-left: 1.5em;
+}
+
+.aligncenter {
+	clear: both;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+/*--------------------------------------------------------------
+# Clearings
+--------------------------------------------------------------*/
+.clear:before,
+.clear:after,
+.entry-content:before,
+.entry-content:after,
+.comment-content:before,
+.comment-content:after,
+.site-header:before,
+.site-header:after,
+.site-content:before,
+.site-content:after,
+.site-footer:before,
+.site-footer:after {
+	content: "";
+	display: table;
+	table-layout: fixed;
+}
+
+.clear:after,
+.entry-content:after,
+.comment-content:after,
+.site-header:after,
+.site-content:after,
+.site-footer:after {
+	clear: both;
+}
+
+/*--------------------------------------------------------------
+# Widgets
+--------------------------------------------------------------*/
+.widget {
+	margin: 0 0 1.5em;
+}
+
+/* Make sure select elements fit in widgets. */
+.widget select {
+	max-width: 100%;
+}
+
+/*--------------------------------------------------------------
+# Content
+--------------------------------------------------------------*/
+/*--------------------------------------------------------------
+## Posts and pages
+--------------------------------------------------------------*/
+.sticky {
+	display: block;
+}
+
+.hentry {
+	margin: 0 0 1.5em;
+}
+
+.byline,
+.updated:not(.published) {
+	display: none;
+}
+
+.single .byline,
+.group-blog .byline {
+	display: inline;
+}
+
+.page-content,
+.entry-content,
+.entry-summary {
+	margin: 1.5em 0 0;
+}
+
+.page-links {
+	clear: both;
+	margin: 0 0 1.5em;
+}
+
+/*--------------------------------------------------------------
+## Comments
+--------------------------------------------------------------*/
+.comment-content a {
+	word-wrap: break-word;
+}
+
+.bypostauthor {
+	display: block;
+}
+
+/*--------------------------------------------------------------
+# Infinite scroll
+--------------------------------------------------------------*/
+/* Globally hidden elements when Infinite Scroll is supported and in use. */
+.infinite-scroll .posts-navigation, /* Older / Newer Posts Navigation (always hidden) */
+.infinite-scroll.neverending .site-footer { /* Theme Footer (when set to scrolling) */
+	display: none;
+}
+
+/* When Infinite Scroll has reached its end we need to re-display elements that were hidden (via .neverending) before. */
+.infinity-end.neverending .site-footer {
+	display: block;
+}
+
+/*--------------------------------------------------------------
+# Media
+--------------------------------------------------------------*/
+.page-content .wp-smiley,
+.entry-content .wp-smiley,
+.comment-content .wp-smiley {
+	border: none;
+	margin-bottom: 0;
+	margin-top: 0;
+	padding: 0;
+}
+
+/* Make sure embeds and iframes fit their containers. */
+embed,
+iframe,
+object {
+	max-width: 100%;
+}
+
+/*--------------------------------------------------------------
+## Captions
+--------------------------------------------------------------*/
+.wp-caption {
+	margin-bottom: 1.5em;
+	max-width: 100%;
+}
+
+.wp-caption img[class*="wp-image-"] {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.wp-caption .wp-caption-text {
+	margin: 0.8075em 0;
+}
+
+.wp-caption-text {
+	text-align: center;
+}
+
+/*--------------------------------------------------------------
+## Galleries
+--------------------------------------------------------------*/
+.gallery {
+	margin-bottom: 1.5em;
+}
+
+.gallery-item {
+	display: inline-block;
+	text-align: center;
+	vertical-align: top;
+	width: 100%;
+}
+
+.gallery-columns-2 .gallery-item {
+	max-width: 50%;
+}
+
+.gallery-columns-3 .gallery-item {
+	max-width: 33.33%;
+}
+
+.gallery-columns-4 .gallery-item {
+	max-width: 25%;
+}
+
+.gallery-columns-5 .gallery-item {
+	max-width: 20%;
+}
+
+.gallery-columns-6 .gallery-item {
+	max-width: 16.66%;
+}
+
+.gallery-columns-7 .gallery-item {
+	max-width: 14.28%;
+}
+
+.gallery-columns-8 .gallery-item {
+	max-width: 12.5%;
+}
+
+.gallery-columns-9 .gallery-item {
+	max-width: 11.11%;
+}
+
+.gallery-caption {
+	display: block;
+}
+
+/* ------------------------------
+	 Theme Specific Styling
+------------------------------- */
+
+/* HTML Elements */
+
+*, html {
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Open Sans Condensed", sans-serif;
+}
+
+p {
+  font-family: "Lato", sans-serif;
+}
+
+/* Global Settings */
+
+.container {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.light {
+  font-weight: 300;
+}
+
+.bold {
+  font-weight: 700;
+}
+
+.btn {
+  color: #fff;
+  background-color: #ee5f9b;
+  border: none;
+  padding: 5px;
+  margin-top: 10px;
+  width: 100%;
+  height: 50px;
+  -ms-border-radius: 3px;
+  border-radius: 3px;
+  font-size: 24px;
+  line-height: 24px;
+  cursor: pointer;
+  -ms-transition: 0.3s ease-in-out;
+  transition: 0.3s ease-in-out;
+}
+
+.btn:hover {
+  background-color: #a3114e;
+}
+
+/* Navigation */
+header {
+  margin: 0;
+}
+.header-container {
+  height: 80px;
+  display: -ms-flexbox;
+  display: flex;
+  flex-direction: row;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
+
+nav.branding {
+  display: -ms-flexbox;
+  display: flex;
+  flex-direction: row;
+}
+
+img.tradewinds-logo {
+  height: 60px;
+  margin-top: 10px;
+  cursor: pointer;
+}
+
+.branding-title {
+	font-size: 48px;
+	font-family: "Lato", sans-serif;
+	font-style: italic;
+	margin-top: 16px;
+	padding-left: 10px;
+}
+
+.desktop-menu {
+  font-family: "Lato", sans-serif;
+  font-size: 24px;
+  line-height: 24px;
+  margin-top: 28px;
+}
+
+.desktop-menu ul {
+  margin: 0;
+  list-style: none;
+}
+
+.desktop-menu li {
+  -ms-text-decoration: none;
+  text-decoration: none;
+  padding-left: 20px;
+  display: inline-flex;
+}
+
+.desktop-menu li a {
+  -ms-text-decoration: none;
+  text-decoration: none;
+}
+
+.link {
+  color: #5a5a5a;
+  -ms-transition: 0.3s ease-in-out;
+  transition: 0.3s ease-in-out;
+}
+
+.link:visited {
+	color: #5a5a5a;
+}
+
+.link:hover {
+  -webkit-transform: scale(1.2);
+  -ms-transform: scale(1.2);
+  transform: scale(1.2);
+  color: #ee5f9b;
+}
+
+
+.mobile-nav-toggle {
+  display: none;
+  width: 50px;
+  height: 25px;
+  margin: 40px 0 0 0;
+  align-items: center;
+  cursor: pointer;
+}
+
+.mobile-nav-toggle:selection,
+.mobile-nav-toggle:-moz-selection {
+  background: transparent;
+}
+
+.mobile-nav-toggle span,
+.mobile-nav-toggle span:before,
+.mobile-nav-toggle span:after {
+  content: "";
+  display: block;
+  height: 2px;
+  width: 100%;
+  background: #383838;
+  position: relative;
+  -ms-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+
+.mobile-nav-toggle span:before {
+  top: 8px;
+}
+
+.mobile-nav-toggle span:after {
+  top: -10px;
+}
+
+.mobile-nav-toggle .is-open span {
+  background: transparent;
+}
+
+.mobile-menu {
+  position: absolute;
+  width: 100%;
+  background: #fff;
+  padding: 80px 0 20px;
+  transform: translateY(-100%);
+  -ms-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+
+.mobile-menu ul {
+  margin: 0;
+  padding: 0;
+}
+
+.mobile-menu li {
+  display: block;
+  text-align: center;
+  -ms-text-decoration: none;
+  text-decoration: none;
+  font-size: 24px;
+  padding-bottom: 10px;
+}
+
+.mobile-menu li a {
+  -ms-text-decoration: none;
+  text-decoration: none;
+}
+
+.mobile-menu a:hover {
+  color: #ee5f9b;
+}
+
+/* Content Container */
+.content-container {
+  display: -ms-flexbox;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: 100%;
+}
+
+/* Call To Action Section */
+#cta {
+  display: -ms-flexbox;
+  display: flex;
+  flex-direction: column;
+  -ms-flex-pack: justify;
+  justify-content: center;
+  width: 50%;
+  margin-left: 10%;
+}
+
+.content-wrapper {
+	width: 80%;
+}
+
+.content-wrapper h1 {
+  font-size: 48px;
+  margin-bottom: 10px;
+}
+
+.content-wrapper p {
+  font-size: 18px;
+}
+
+.cta-form {
+  margin-top: 50px;
+}
+
+#calculator-container input[type="email"],
+.cta-form input {
+  -ms-border-radius: 3px;
+  border-radius: 3px;
+  border-style: solid;
+  border-color: #ccc;
+  height: 50px;
+  width: 100%;
+  font-size: 24px;
+  line-height: 24px;
+  padding-left: 10px;
+  color: #ee5f9b;
+}
+
+input[type="submit"] {
+	color: #fff;
+	border: none;
+}
+
+.social-wrapper {
+  width: 80%;
+  display: -ms-flexbox;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  -ms-flex-pack: justify;
+  justify-content: space-around;
+	margin: 0 auto;
+}
+
+a.social-link {
+  color: #5a5a5a;
+  -ms-transition: 0.3s ease-in-out;
+  transition: .3s ease-in-out;
+}
+
+a.social-link:hover {
+  color: #ee5f9b;
+  transform: scale(1.25);
+}
+
+/* Hero Section */
+#hero {
+  width:50%;
+  background: url('/wp-content/themes/tradewinds_interactive/img/beach.jpg') no-repeat center center;
+  background-size: cover;
+  -ms-border-radius: 3px 0 0 3px;
+  border-radius: 3px 0 0 3px;
+}
+
+/* Calculator Hero Section */
+#calculator-hero {
+  width:100%;
+  height: 350px;
+  background: url('/wp-content/themes/tradewinds_interactive/img/code.jpg') no-repeat center center;
+  background-size: cover;
+  display: -ms-flexbox;
+  display: flex;
+  flex-direction: column;
+  -ms-flex-pack: justify;
+  justify-content: center;
+  text-align: center;
+}
+
+.calculator-hero-title {
+  font-size: 48px;
+  line-height: 48px;
+  color: #ee5f9b;
+}
+
+/* Contact Hero */
+#contact-hero {
+  width:50%;
+  background: url('/wp-content/themes/tradewinds_interactive/img/coast.jpg') no-repeat center center;
+  background-size: cover;
+  -ms-border-radius: 3px 0 0 3px;
+  border-radius: 3px 0 0 3px;
+}
+
+/* Calculator Content Wrapper */
+.calculator-content-wrapper {
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  -ms-flex-pack: justify;
+  justify-content: space-around;
+}
+
+/* Information Container Section */
+#information-container {
+  width: 50%;
+  display: -ms-flexbox;
+  display: flex;
+  flex-direction: column;
+  -ms-flex-pack: justify;
+  justify-content: center;
+  padding: 30px;
+}
+
+#information-container h3 {
+  margin: 18px 0 14px 0;
+  font-size: 22px;
+  line-height: 22px;
+  color: #ee5f9b;
+}
+
+#information-container p {
+  margin: 12px 0;
+  font-size: 16px;
+  line-height: 22px;
+}
+
+/* Calculator Container Section */
+#calculator-container {
+  width: 50%;
+  display: -ms-flexbox;
+  display: flex;
+  flex-direction: column;
+  -ms-flex-pack: justify;
+  justify-content: flex-start;
+  padding: 30px;
+}
+
+#calculator-container h3{
+  display: inline-block;
+  font-size: 22px;
+  line-height: 22px;
+}
+
+#calculator-container small {
+  padding-left: 20px;
+}
+
+.form-wrapper {
+  margin-bottom: 10px;
+}
+
+.form-wrapper input[type=text] {
+  height: 22px;
+  width: 100px;
+  -ms-border-radius: 3px;
+  border-radius: 3px;
+  border: none;
+  border-bottom: 2px solid #ccc;
+  padding: 2px 0 1px 16px;
+  color: #ee5f9b;
+  font-size: 20px;
+  line-height: 20px;
+  font-weight: 700;
+}
+
+.form-wrapper input[type=checkbox] {
+  -webkit-appearance: none;
+  -moz-appearance: checkbox;
+  appearance: none;
+  -ms-border-radius: 3px;
+  border-radius: 3px;
+  border: 2px solid #ccc;
+  height: 22px;
+  width: 22px;
+  margin: 0 0 -1px 20px;
+  cursor: pointer;
+}
+
+.form-wrapper input[type=checkbox]:checked {
+  border-color: #ee5f9b;
+  color: #ee5f9b;
+  background: url('/wp-content/themes/tradewinds_interactive/img/tick.svg') no-repeat center center;
+  background-size: cover;
+}
+
+.form-wrapper input:focus {
+  outline: none !important;
+  border-color: #ee5f9b;
+}
+
+.min-max-wrapper {
+  width: 80%;
+  display: -ms-flexbox;
+  display: flex;
+  flex-direction: row;
+  -ms-flex-pack: justify;
+  justify-content: space-around;
+  margin-bottom: 20px;
+}
+#minSite,
+#maxSite {
+  margin: 0;
+  width: 40%;
+  height: auto;
+  border: 0;
+  border-bottom: 2px solid #ccc;
+  font-size: 30px;
+  line-height: 30px;
+  text-align: center;
+}
+
+/* Footer Section */
+footer {
+  margin: 0;
+  padding: 20px;
+  text-align: center;
+}
+
+/* ------------------------ */
+
+/* Media Queries */
+@media screen and (min-width: 1080px) {
+  /* Content Container */
+  .content-container {
+    min-height: 600px;
+  }
+
+}
+
+@media screen and (max-width: 768px) {
+
+  /* Globale Settings */
+  .container {
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  /* Navigation */
+
+  .header-container {
+    width: 100%;
+    margin: auto;
+    padding: 0 20px;
+  }
+
+  nav.branding {
+    flex-direction: row;
+    padding-right: 50px;
+  }
+
+  img.tradewinds-logo {
+    height: 40px;
+    margin-top: 20px;
+    width: 100%;
+  }
+
+	.branding-title {
+		margin-top: 22px;
+		font-size: 36px;
+		line-height: 36px;
+	}
+
+
+  .desktop-menu {
+    display: none;
+    font-size: 18px;
+    line-height: 18px;
+    margin-top: 31px;
+  }
+
+  .mobile-nav-toggle {
+    display: -ms-flexbox;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .mobile-menu.is-open {
+    display: block;
+    transform: translate(0%);
+  }
+
+  /* Content Container */
+  .content-container {
+    flex-direction: column-reverse;
+    height: 100%;
+  }
+
+
+  #cta {
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+		padding: 0 20px;
+  }
+
+  .content-wrapper {
+    margin: 0 auto;
+    width: 100%;
+    text-align: center;
+  }
+
+	#calculator-container input[type="email"],
+	.cta-form input {
+    font-size: 18px;
+    line-height: 18px;
+  }
+
+  .btn {
+    font-size: 18px;
+    line-height: 18px;
+  }
+
+  /* Hero Section */
+  #hero {
+    width:100%;
+    height: 400px;
+    -ms-border-radius: 0;
+    border-radius: 0;
+  }
+
+  /* Calculator Hero Section */
+  #calculator-hero {
+    height: 200px;
+  }
+
+  .calculator-hero-title {
+    font-size: 36px;
+    line-height: 36px;
+  }
+
+  /* Contact Hero */
+  #contact-hero {
+    width:100%;
+    height: 400px;
+    -ms-border-radius: 0;
+    border-radius: 0;
+  }
+
+  /* Calculator Content Wrapper */
+  .calculator-content-wrapper {
+    flex-direction: column-reverse;
+    -ms-flex-pack: justify;
+    justify-content: center;
+  }
+
+  /* Information Container Section */
+  #information-container {
+    width: 100%;
+  }
+
+  #information-container h3 {
+    font-size: 18px;
+    line-height: 18px;
+  }
+
+  #information-container p {
+    font-size: 16px;
+    line-height: 20px;
+  }
+
+  /* Calculator Container Section */
+  #calculator-container {
+    width: 100%;
+  }
+
+  #calculator-container h3{
+    display: block;
+    font-size: 18px;
+    line-height: 18px;
+  }
+
+  /* Footer Section */
+
+  footer {
+    margin-top: 20px;
+  }
+
+}
+
+@media screen and (max-width: 568px) {
+	img.tradewinds-logo {
+    display: none;
+    height: 40px;
+    margin-top: 20px;
+  }
+
+  .branding-title {
+    margin-top: 22px;
+    font-size: 36px;
+    line-height: 36px;
+    padding: 0;
+  }
+
+	#calculator-container input[type="email"],
+  .cta-form input {
+    font-size: 14px;
+    line-height: 14px;
+  }
+
+  /* Hero Section */
+  #hero {
+    height: 250px;
+  }
+
+}
